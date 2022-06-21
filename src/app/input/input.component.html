@@ -1,0 +1,56 @@
+<div class="pt-24 w-full max-w-xs" *ngIf="!showConfirmationMessage && !showResults">
+    <div class="center mb-8">
+        <h1 class="font-bold text-2xl tracking-wide">Tell us about yourself</h1>
+    </div>
+
+    <div class="center">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" name="details" (ngSubmit)="saveDetails()">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Fullname
+                  </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline caret-blue-500" required name="fullname" [(ngModel)]="personalDetails.fullname" type="text" />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Email
+                  </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline caret-blue-500" required name="email" [(ngModel)]="personalDetails.email" type="email" />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Date of Birth
+                  </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline caret-blue-500" required name="dateOfBirth" [(ngModel)]="personalDetails.dateOfBirth" type="date" />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Favorite Color
+                  </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline caret-blue-500" required name="favoritecolor" [(ngModel)]="personalDetails.favoriteColor" type="text" />
+            </div>
+            <div>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="center-vertical" *ngIf="showConfirmationMessage">
+    <div class="text-center mb-8 grid grid-rows-2 content-center">
+        <div>
+            <h1 class="font-bold text-2xl tracking-wide">Thank you for telling us about yourself. Your results has been saved.</h1>  
+        </div>
+        <div>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" (click)="showResults=true;showConfirmationMessage=false;">See Results</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="showResults">
+    <app-results></app-results>
+    <div class="flex justify-end pr-24 pt-10">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" (click)="showResults=false;showConfirmationMessage=false;">Back</button>
+    </div>
+</div>
