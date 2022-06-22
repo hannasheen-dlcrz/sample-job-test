@@ -39,7 +39,7 @@
 
 <div class="center-vertical" *ngIf="showConfirmationMessage">
     <div class="text-center mb-8 grid grid-rows-2 content-center">
-        <div>
+        <div class="pb-4">
             <h1 class="font-bold text-2xl tracking-wide">Thank you for telling us about yourself. Your results has been saved.</h1>  
         </div>
         <div>
@@ -49,8 +49,5 @@
 </div>
 
 <div *ngIf="showResults">
-    <app-results></app-results>
-    <div class="flex justify-end pr-24 pt-10">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" (click)="showResults=false;showConfirmationMessage=false;">Back</button>
-    </div>
+    <app-results (back)="backToForm()"></app-results>
 </div>

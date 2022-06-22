@@ -37,8 +37,9 @@ export class InputComponent implements OnInit {
     this.showConfirmationMessage = true;
   }
 
-  seeResults() {
-
+  backToForm() {
+    this.showResults=false;
+    this.showConfirmationMessage=false;
   }
 
 }

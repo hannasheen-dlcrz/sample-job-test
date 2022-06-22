@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 
 @Component({
   selector: 'app-results',
@@ -7,15 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
   personDetails = [];
+  @Output() back = new EventEmitter();
 
   constructor() { }
   ngOnInit(): void {
 
     this.getProfile()
   
-
-    console.log("getlocalStorage")
   }
+
+  backToForm(): void {
+    this.back.emit();
+  }
+
 
   getProfile() {
     let details = JSON.parse(window.localStorage.getItem('details') || '[]');
